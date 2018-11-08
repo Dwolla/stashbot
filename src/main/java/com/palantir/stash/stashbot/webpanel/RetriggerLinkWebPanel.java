@@ -72,13 +72,10 @@ public class RetriggerLinkWebPanel implements WebPanel {
             Commit commit = (Commit) context.get("commit");
             String url = ub.getJenkinsTriggerUrl(repo, JobType.VERIFY_COMMIT,
                 commit.getId(), null);
-            String pubUrl = ub.getJenkinsTriggerUrl(repo, JobType.PUBLISH,
-                commit.getId(), null);
             // boy it would be nice if there were a way to do this from context.
             // also would be nice to inject this script once at the top somehow
             writer.append("Trigger: ( ");
-            writer.append("<a onclick=\"location.href=this.href+'?reason=refs/heads/'+document.getElementById('repository-layout-revision-selector').title;return false;\" id=\"stashbotVerifyLink\" href=\"" + url + "\">Verify</a> | ");
-            writer.append("<a onclick=\"location.href=this.href+'?reason=refs/heads/'+document.getElementById('repository-layout-revision-selector').title;return false;\" id=\"stashbotPublishLink\" href=\"" + pubUrl + "\">Publish</a> )");
+            writer.append("<a onclick=\"location.href=this.href+'?reason=refs/heads/'+document.getElementById('repository-layout-revision-selector').title;return false;\" id=\"stashbotVerifyLink\" href=\"" + url + "\">Verify</a> )");
         } catch (SQLException e) {
             throw new IOException(e);
         }
