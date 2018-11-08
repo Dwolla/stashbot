@@ -284,7 +284,7 @@ public class BuildSuccessReportingServlet extends HttpServlet {
             // So in order to create comments, we have to do it AS some user.  ss.doAsUser rather than ss.doWithPermission is the magic sauce here.
             JenkinsServerConfiguration jsc =
                 configurationPersistanceManager.getJenkinsServerConfiguration(rc.getJenkinsServerName());
-            String username = jsc.getUsername();
+            String username = jsc.getStashUsername();
             ApplicationUser user = us.findUserByNameOrEmail(username);
             ss.impersonating(user, "BUILD SUCCESS REPORT").call(prcao);
 

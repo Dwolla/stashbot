@@ -134,7 +134,7 @@ public class BuildSuccessReportingServletTest {
             cpm.getRepositoryConfigurationForRepository(Mockito
                 .any(Repository.class))).thenReturn(rc);
         Mockito.when(jsc.getUrl()).thenReturn(ABSOLUTE_URL);
-        Mockito.when(jsc.getUsername()).thenReturn("some-stash-username");
+        Mockito.when(jsc.getStashUsername()).thenReturn("some-stash-username");
         Mockito.when(cpm.getPullRequestMetadata(pr)).thenReturn(prm);
         Mockito.when(repositoryService.getById(REPO_ID)).thenReturn(repo);
         Mockito.when(prs.getById(REPO_ID, PULL_REQUEST_ID)).thenReturn(pr);
