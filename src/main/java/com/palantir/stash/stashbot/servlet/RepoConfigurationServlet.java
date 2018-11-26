@@ -113,6 +113,23 @@ public class RepoConfigurationServlet extends HttpServlet {
                 ImmutableMap.Builder<String, String> m = ImmutableMap.builder();
                 m.put("text", jsc.getName());
                 m.put("value", jsc.getName());
+
+                String jscGetName = "undefined";
+                if (jsc != null) {
+                    jscGetName = jsc.getName();
+                }
+
+                String rcGetJenkinsServerName = "undefined";
+                if (rc != null) {
+                    rcGetJenkinsServerName = rc.getJenkinsServerName();
+                }
+
+                log.info("Printing possible causes of a NullPointerException: \n" +
+                    "    jsc: " + String.valueOf(jsc) + "\n" +
+                    "    jsc.getName(): " + String.valueOf(jscGetName) + "\n" +
+                    "    rc: " + String.valueOf(rc) + "\n" +
+                    "    rc.getJenkinsServerName(): " + String.valueOf(rcGetJenkinsServerName));
+
                 if (rc.getJenkinsServerName().equals(jsc.getName())) {
                     m.put("selected", "true");
                 }
