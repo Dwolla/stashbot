@@ -164,6 +164,7 @@ public class JenkinsConfigurationServlet extends HttpServlet {
                     .put("jenkinsConfigs", jenkinsConfigs)
                     .put("error", error)
                     .put("notice", notice)
+                    .put("authenticationModesForNewEntry", AuthenticationMode.getSelectList(null))
                     .put("authenticationModeData", authDataBuilder.build())
                     .put("authenticationModeDataSelected", authDataSelectedBuilder.build())
                     .build()

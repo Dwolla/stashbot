@@ -5,6 +5,7 @@
  * @param jenkinsConfigs
  * @param error
  * @param notice
+ * @param authenticationModesForNewEntry
  * @param authenticationModeData
  * Xparam authenticationModeDataSelected
  **/
@@ -167,7 +168,7 @@
             {call aui.form.selectField}
               {param id: 'authenticationMode' /}
               {param labelContent: 'Bitbucket Authentication Mode' /}
-              {param options: $authenticationModeData['default'] /}
+              {param options: $authenticationModesForNewEntry /}
               {param descriptionText: 'Bitbucket Authentication Mode' /}
             {/call}
             {call aui.form.textField}
